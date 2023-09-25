@@ -3,8 +3,10 @@ package com.example.simplecalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+/*
     public void btn00Click(View view) {
         EditText eText = (EditText) findViewById(R.id.resultEdit);
         eText.setText(eText.getText() + "0");
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         EditText eText = (EditText) findViewById(R.id.resultEdit);
         eText.setText(eText.getText() + "9");
     }
-
+*/
     public void btnAddClick(View view) {
         optr = Operator.add;
         EditText eText = (EditText)findViewById(R.id.resultEdit);
@@ -100,12 +102,12 @@ public class MainActivity extends AppCompatActivity {
         EditText eText = (EditText)findViewById(R.id.resultEdit);
         eText.setText("");
     }
-
+/*
     public void btnDotClick(View view) {
         EditText eText = (EditText)findViewById(R.id.resultEdit);
         eText.setText(eText.getText()+".");
     }
-
+*/
     public void btnResultClick(View view) {
         if (optr != Operator.none) {
             EditText eText = (EditText)findViewById(R.id.resultEdit);
@@ -127,6 +129,39 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 eText.setText(String.valueOf((int)result));
             }
+        }
+    }
+
+
+    public void onClickNumericalButton(View view) {
+        int pressID = view.getId();
+        EditText eText = (EditText)findViewById(R.id.resultEdit);
+
+        if (pressID == R.id.btn00) {
+            eText.setText(eText.getText() + "0");
+        } else if (pressID == R.id.btn01) {
+            eText.setText(eText.getText() + "1");
+        } else if (pressID == R.id.btn02) {
+            eText.setText(eText.getText() + "2");
+        } else if (pressID == R.id.btn03) {
+            eText.setText(eText.getText() + "3");
+        } else if (pressID == R.id.btn04) {
+            eText.setText(eText.getText() + "4");
+        } else if (pressID == R.id.btn05) {
+            eText.setText(eText.getText() + "5");
+        } else if (pressID == R.id.btn06) {
+            eText.setText(eText.getText() + "6");
+        } else if (pressID == R.id.btn07) {
+            eText.setText(eText.getText() + "7");
+        } else if (pressID == R.id.btn08) {
+            eText.setText(eText.getText() + "8");
+        } else if (pressID == R.id.btn09) {
+            eText.setText(eText.getText() + "9");
+        } else if (pressID == R.id.btnDot) {
+            eText.setText(eText.getText() + ".");
+        } else {
+            eText.setText("ERROR");
+            Log.d("Error", "Error: Unknown button pressed!");
         }
     }
 }
