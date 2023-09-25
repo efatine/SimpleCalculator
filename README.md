@@ -1,2 +1,2 @@
 # SimpleCalculator
-SimpleCalculator Lab
+SimpleCalculator Lab for SEG 2105
